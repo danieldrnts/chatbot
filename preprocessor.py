@@ -1,8 +1,13 @@
+import pandas as pd 
+import numpy as np 
 import string
 import re
 import json
 
+
 import nltk
+# nltk.download('wordnet') 
+
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
@@ -12,7 +17,6 @@ lemmatizer = WordNetLemmatizer()
 
 
 def tokenizer(entry):
-    print(entry)
     tokens = entry.split()
     re_punc = re.compile('[%s]' % re.escape(string.punctuation))
     tokens = [re_punc.sub('', w) for w in tokens]
